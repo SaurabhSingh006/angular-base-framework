@@ -1,0 +1,45 @@
+<!-- SIDENAV CODE HERE -->
+<mat-sidenav-container>
+    <mat-sidenav
+      [(opened)]="sidenavStatus"
+      [mode]="mobileQuery.matches ? 'over' : 'side'"
+    >
+      <div style="color: white;text-align: center;">
+        INVESTOR SHOTS
+      </div>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <!-- NAVIGATION -->
+      <div class="nav">
+        <div>
+          <button
+            *ngIf="showHamburgerMenuOnDesktopView || mobileQuery.matches"
+            class="nav__menu"
+            (click)="onMenuClick()"
+          >
+            <mat-icon>menu</mat-icon>
+          </button>
+        </div>
+  
+        <div class="nav__login">
+          <p
+            class="nav__login--text"
+            style="cursor: pointer"
+            (click)="handleLogout()"
+          >
+            Logout
+          </p>
+          <div class="nav__login--imgContainer">
+            <img
+              src="https://banglarshiksha.gov.in/assets/frontend/images/login_placeholder.jpg"
+              height="35px"
+            />
+          </div>
+        </div>
+      </div>
+  
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  
